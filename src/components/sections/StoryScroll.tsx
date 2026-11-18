@@ -21,6 +21,8 @@ export function StoryScroll() {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion || window.innerWidth < 768) return;
 
+    section.classList.add("story-scroll-ready");
+
     gsap.registerPlugin(ScrollTrigger);
     const context = gsap.context(() => {
       const images = imageRefs.current.filter(Boolean) as HTMLDivElement[];
@@ -49,7 +51,10 @@ export function StoryScroll() {
       });
     }, section);
 
-    return () => context.revert();
+    return () => {
+      context.revert();
+      section.classList.remove("story-scroll-ready");
+    };
   }, []);
 
   return (
@@ -79,7 +84,7 @@ export function StoryScroll() {
 
         <div className="relative aspect-[4/3] overflow-hidden border border-zinc-800 bg-zinc-900 md:aspect-[5/4]">
           {STORY_STAGES.map((stage, index) => (
-            <div key={stage.number} ref={(element) => { imageRefs.current[index] = element; }} className="absolute inset-0">
+            <div key={stage.number} ref={(element) => { imageRefs.current[index] = element; }} className="story-stage-image absolute inset-0">
               <Image src={stage.image.src} alt={stage.image.alt} fill sizes="(max-width: 767px) 100vw, 50vw" className="pointer-events-none object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-transparent to-transparent" />
               <span className="absolute bottom-5 left-5 text-xs uppercase tracking-[0.2em] text-amber-400">{stage.title}</span>

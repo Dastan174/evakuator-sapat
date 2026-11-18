@@ -44,6 +44,22 @@ html {
   }
 }
 
+/* The storytelling stack remains fully visible until ScrollTrigger is ready. */
+.story-stage-image {
+  position: relative;
+  margin-top: 0.75rem;
+  min-height: 12rem;
+}
+
+@media (min-width: 768px) {
+  .story-scroll-ready .story-stage-image {
+    position: absolute;
+    margin-top: 0;
+    min-height: 0;
+  }
+}
+
+
 
 /* Accessibility: respect user choice for reduced motion */
 @media (prefers-reduced-motion: reduce) {
