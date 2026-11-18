@@ -4,7 +4,8 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Phone, MessageSquare, Clock, ArrowDown, ShieldCheck } from "lucide-react";
+import { Phone, Clock, ArrowDown, ShieldCheck } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/WhatsappIcon";
 import { BUSINESS_CONFIG } from "@/config/business";
 import { GALLERY_IMAGES } from "@/config/gallery";
 import { STARTING_PRICE_LABEL } from "@/config/services";
@@ -89,7 +90,7 @@ export function Hero() {
                 <Phone className="h-5 w-5 fill-zinc-950" /> Вызвать эвакуатор
               </a>
               <a href={waLink} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-14 items-center justify-center gap-3 border border-white/25 bg-black/25 px-7 text-base font-bold text-white backdrop-blur-sm transition-colors hover:border-emerald-400 hover:text-emerald-300 active:scale-[.98]">
-                <MessageSquare className="h-5 w-5" /> WhatsApp
+                <WhatsappIcon className="h-5 w-5" /> WhatsApp
               </a>
             </div>
           </div>

@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { Phone, Menu, MessageSquare, Truck } from "lucide-react";
+import { Phone, Menu, Truck } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/WhatsappIcon";
 import { MAIN_NAV_ITEMS } from "@/config/navigation";
 import { BUSINESS_CONFIG } from "@/config/business";
 import { formatTelUri, formatWhatsAppUri } from "@/lib/utils";
@@ -23,7 +24,7 @@ export function Header() {
           {MAIN_NAV_ITEMS.map((item) => <Link key={item.href} href={item.href} className="hover:text-amber-400 transition-colors">{item.title}</Link>)}
         </nav>
         <div className="flex items-center gap-2">
-          <a href={waLink} target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp" className="hidden sm:flex h-10 w-10 items-center justify-center border border-zinc-700 text-emerald-400 hover:border-emerald-500"><MessageSquare className="w-4 h-4" /></a>
+          <a href={waLink} target="_blank" rel="noopener noreferrer" aria-label="Написать в WhatsApp" className="hidden sm:flex h-10 w-10 items-center justify-center border border-zinc-700 text-emerald-400 hover:border-emerald-500"><WhatsappIcon className="h-4 w-4" /></a>
           <a href={telLink} className="hidden md:block text-right"><span className="block text-xs text-zinc-500">Заказать эвакуатор</span><span className="text-sm font-bold text-zinc-100">{BUSINESS_CONFIG.contacts.primaryPhoneFormatted}</span></a>
           <a href={telLink} className="inline-flex items-center gap-2 bg-amber-500 px-3 sm:px-4 py-2.5 text-xs font-bold text-zinc-950 hover:bg-amber-400"><Phone className="h-4 w-4" /><span className="hidden sm:inline">Позвонить</span></a>
           <button type="button" onClick={() => setIsMobileMenuOpen(true)} className="xl:hidden min-h-11 min-w-11 p-2 text-zinc-300 hover:text-white" aria-label="Открыть меню" aria-expanded={isMobileMenuOpen}><Menu className="w-5 h-5" /></button>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
-import { Phone, MessageSquare, MapPin, Clock, ShieldAlert, CheckCircle2 } from "lucide-react";
+import { Phone, MapPin, Clock, ShieldAlert, CheckCircle2 } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/WhatsappIcon";
 import { BUSINESS_CONFIG } from "@/config/business";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getPageMetadata } from "@/config/seo";
@@ -61,7 +62,7 @@ export default function ContactsPage() {
                 rel="noopener noreferrer"
                 className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors"
               >
-                <MessageSquare className="w-4 h-4 fill-white" />
+                <WhatsappIcon className="h-4 w-4" />
                 <span>Написать в WhatsApp</span>
               </a>
             </div>

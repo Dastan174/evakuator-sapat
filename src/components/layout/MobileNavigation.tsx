@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { X, Phone, MessageSquare, MapPin, Clock } from "lucide-react";
+import { X, Phone, MapPin, Clock } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/WhatsappIcon";
 import { MAIN_NAV_ITEMS } from "@/config/navigation";
 import { BUSINESS_CONFIG } from "@/config/business";
 import { formatTelUri, formatWhatsAppUri } from "@/lib/utils";
@@ -44,7 +45,7 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
   );
 
   return (
-    <div className="fixed inset-0 z-50 xl:hidden" role="dialog" aria-modal="true" aria-label="Мобильное меню">
+    <div className="fixed inset-0 z-[60] xl:hidden" role="dialog" aria-modal="true" aria-label="Мобильное меню">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/80 backdrop-blur-md transition-opacity"
@@ -114,7 +115,7 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm"
           >
-            <MessageSquare className="w-4 h-4 fill-white" />
+            <WhatsappIcon className="h-4 w-4" />
             <span>Написать в WhatsApp</span>
           </a>
         </div>

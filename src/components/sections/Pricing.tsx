@@ -1,5 +1,6 @@
 import React from "react";
-import { Check, Phone, MessageSquare, AlertCircle } from "lucide-react";
+import { Check, Phone, AlertCircle } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/WhatsappIcon"
 import { PRICING_TIERS } from "@/config/services";
 import { BUSINESS_CONFIG } from "@/config/business";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -88,7 +89,7 @@ export function Pricing() {
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-xl bg-zinc-850 hover:bg-zinc-800 text-zinc-300 hover:text-white text-xs font-medium transition-colors"
                   >
-                    <MessageSquare className="w-3.5 h-3.5 text-emerald-400" />
+                    <WhatsappIcon className="h-3.5 w-3.5 text-emerald-400" />
                     <span>Расчет в WhatsApp</span>
                   </a>
                 </div>

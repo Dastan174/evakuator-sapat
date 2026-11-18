@@ -8,8 +8,8 @@ import {
   BatteryCharging,
   CheckCircle2,
   PhoneCall,
-  MessageSquare,
 } from "lucide-react";
+import { WhatsappIcon } from "@/components/ui/WhatsappIcon";
 import { ServiceItem } from "@/types";
 import { BUSINESS_CONFIG } from "@/config/business";
 import { formatTelUri, formatWhatsAppUri, cn } from "@/lib/utils";
@@ -101,7 +101,7 @@ export function ServiceCard({ service, className }: ServiceCardProps) {
           className="flex items-center justify-center p-2.5 rounded-lg bg-emerald-700/20 hover:bg-emerald-600 text-emerald-400 hover:text-white border border-emerald-600/30 transition-all duration-200"
           aria-label={`Заказать ${service.title} через WhatsApp`}
         >
-          <MessageSquare className="w-4 h-4" />
+          <WhatsappIcon className="h-4 w-4" />
         </a>
       </div>
     </div>
