@@ -3,6 +3,7 @@ const path = require("node:path");
 
 const port = process.env.PORT || "3000";
 const root = path.resolve(__dirname, "..");
+const nextCli = path.join(root, "node_modules", "next", "dist", "bin", "next");
 
 function findPid() {
   try {
@@ -24,11 +25,16 @@ if (pid && pid !== String(process.pid)) {
   }
 }
 
-const next = spawn(process.platform === "win32" ? "npx.cmd" : "npx", ["next", "dev", "-p", port], {
-  cwd: root,
-  stdio: "inherit",
-  windowsHide: false,
-});
+const next = process.platform === "win32"
+  ? spawn(process.execPath, [nextCli, "dev", "-p", port], {
+      cwd: root,
+      stdio: "inherit",
+      windowsHide: false,
+    })
+  : spawn(nextCli, ["dev", "-p", port], {
+      cwd: root,
+      stdio: "inherit",
+    });
 
 next.on("exit", (code, signal) => {
   if (signal) process.kill(process.pid, signal);
