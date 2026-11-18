@@ -22,6 +22,11 @@ html {
   mask-image: linear-gradient(to bottom, black, transparent 85%);
 }
 
+.cinematic-hero-ready .cinematic-hero-image {
+  will-change: transform;
+}
+
+
 /* Editorial utility details used across the industrial visual system. */
 .eyebrow-line {
   position: relative;

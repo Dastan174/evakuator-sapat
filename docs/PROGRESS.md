@@ -34,6 +34,7 @@ MVP implementation and owner-confirmed business details entered on 2026-11-18.
 - Added owner-provided photo gallery and hero image, then verified desktop/mobile behavior with Playwright at 1440×900 and 390×844. Mobile menu, CTA links, route status, and hydration console output passed after QA fixes.
 - Owner confirmed starting price from 2,000 som, service coverage including passenger cars, SUVs, minibuses, special equipment and intercity routes, and stated load capacity up to 8 tonnes.
 - Began the cinematic upgrade: installed GSAP, added a reduced-motion-safe pinned story section with four service stages, desktop horizontal gallery fallback, and updated service/pricing/FAQ copy with confirmed facts.
+- Upgraded the hero to a real full-screen pinned cinematic sequence: layered image scale/pan, independent copy/meta movement, dark art-directed overlays, and mobile-safe non-pinned fallback.
 
 ## Next steps
 1. Confirm and replace business information as the owner sends it.
