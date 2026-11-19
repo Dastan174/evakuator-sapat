@@ -6,7 +6,7 @@ export interface GalleryImage {
 }
 
 const photo = (name: string, alt: string, width: number, height: number): GalleryImage => ({
-  src: `/images/WhatsApp Image 2026-11-18 at ${name}.webp`,
+  src: `/images/${name}.webp`,
   alt,
   width,
   height,
@@ -14,22 +14,22 @@ const photo = (name: string, alt: string, width: number, height: number): Galler
 
 /** Owner-provided photos from the company's 2GIS gallery. Alt text describes what is actually in frame. */
 export const PHOTOS = {
-  night: photo("23.28.03 (4)", "Красный эвакуатор с белым внедорожником ночью у жилого комплекса", 722, 955),
-  sunset: photo("23.28.04", "Белый эвакуатор с седаном на платформе на фоне заката", 722, 950),
-  mountainSedan: photo("23.28.03 (3)", "Седан на платформе эвакуатора на горной трассе", 542, 955),
-  redSuv: photo("23.28.02", "Красный эвакуатор везёт синий внедорожник по улице", 750, 556),
-  cityCrossover: photo("23.28.03 (1)", "Белый эвакуатор перевозит белый кроссовер по городу", 750, 556),
-  blackSuv: photo("23.28.02 (4)", "Синий эвакуатор с чёрным внедорожником на платформе", 750, 422),
-  loader: photo("23.28.04 (5)", "Синий грузовой эвакуатор перевозит красный мини-погрузчик", 960, 1280),
-  mountainCrossover: photo("23.28.02 (2)", "Синий эвакуатор с белым кроссовером на горной дороге", 542, 958),
-  lightTruck: photo("23.28.01", "Синий эвакуатор с белым грузовиком на платформе", 750, 421),
-  redSedan: photo("23.28.02 (1)", "Красный эвакуатор с белым седаном на платформе", 750, 563),
-  minibus: photo("23.28.02 (3)", "Синий эвакуатор перевозит белый микроавтобус", 542, 952),
-  silverSedan: photo("23.28.03", "Белый эвакуатор с серебристым седаном на городской улице", 722, 950),
-  van: photo("23.28.03 (2)", "Синий эвакуатор с белым фургоном у дороги", 750, 422),
-  evening: photo("23.28.04 (1)", "Синий грузовой эвакуатор с легковым автомобилем вечером", 960, 1280),
-  forklift: photo("23.28.04 (2)", "Синий грузовой эвакуатор перевозит вилочный погрузчик", 960, 1280),
-  forkliftSide: photo("23.28.04 (3)", "Вилочный погрузчик на платформе синего эвакуатора", 960, 1280),
+  night: photo("evakuator-bishkek-noch", "Красный эвакуатор с белым внедорожником ночью у жилого комплекса", 722, 955),
+  sunset: photo("evakuator-sedan-zakat", "Белый эвакуатор с седаном на платформе на фоне заката", 722, 950),
+  mountainSedan: photo("evakuator-mezhgorod-trassa", "Седан на платформе эвакуатора на горной трассе", 542, 955),
+  redSuv: photo("evakuator-vnedorozhnik-bishkek", "Красный эвакуатор везёт синий внедорожник по улице", 750, 556),
+  cityCrossover: photo("evakuator-krossover-bishkek", "Белый эвакуатор перевозит белый кроссовер по городу", 750, 556),
+  blackSuv: photo("evakuator-chernyj-vnedorozhnik", "Синий эвакуатор с чёрным внедорожником на платформе", 750, 422),
+  loader: photo("perevozka-mini-pogruzchika", "Синий грузовой эвакуатор перевозит красный мини-погрузчик", 960, 1280),
+  mountainCrossover: photo("evakuator-gornaya-doroga", "Синий эвакуатор с белым кроссовером на горной дороге", 542, 958),
+  lightTruck: photo("evakuator-gruzovik", "Синий эвакуатор с белым грузовиком на платформе", 750, 421),
+  redSedan: photo("evakuator-sedan", "Красный эвакуатор с белым седаном на платформе", 750, 563),
+  minibus: photo("perevozka-mikroavtobusa", "Синий эвакуатор перевозит белый микроавтобус", 542, 952),
+  silverSedan: photo("evakuator-legkovoj-avtomobil", "Белый эвакуатор с серебристым седаном на городской улице", 722, 950),
+  van: photo("perevozka-furgona", "Синий эвакуатор с белым фургоном у дороги", 750, 422),
+  evening: photo("evakuator-vecherom", "Синий грузовой эвакуатор с легковым автомобилем вечером", 960, 1280),
+  forklift: photo("perevozka-pogruzchika", "Синий грузовой эвакуатор перевозит вилочный погрузчик", 960, 1280),
+  forkliftSide: photo("perevozka-vilochnogo-pogruzchika", "Вилочный погрузчик на платформе синего эвакуатора", 960, 1280),
 };
 
 export type PhotoKey = keyof typeof PHOTOS;

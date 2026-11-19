@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description: DEFAULT_SEO_CONFIG.description,
   keywords: DEFAULT_SEO_CONFIG.keywords,
   openGraph: { type: "website", locale: "ru_KG", siteName: BUSINESS_CONFIG.brandName, title: DEFAULT_SEO_CONFIG.title, description: DEFAULT_SEO_CONFIG.description },
+  twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
 };
 

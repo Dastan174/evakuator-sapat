@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { BUSINESS_CONFIG } from "./business";
+import { PHOTOS } from "./gallery";
 
 /**
  * Canonical origin. Explicit NEXT_PUBLIC_SITE_URL wins; otherwise Vercel's production domain is used
@@ -42,6 +43,8 @@ export function generateLocalBusinessJsonLd() {
     name: BUSINESS_CONFIG.brandName,
     description: DEFAULT_SEO_CONFIG.description,
     url: SITE_URL,
+    logo: `${SITE_URL}/logo.png`,
+    image: [`${SITE_URL}/opengraph-image`, ...Object.values(PHOTOS).slice(0, 6).map((photo) => `${SITE_URL}${encodeURI(photo.src)}`)],
     telephone: BUSINESS_CONFIG.contacts.primaryPhone,
     openingHours: "Mo-Su 00:00-23:59",
     priceRange: "от 2 000 сомов",

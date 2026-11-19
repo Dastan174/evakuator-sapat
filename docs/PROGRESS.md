@@ -55,6 +55,13 @@ MVP implementation and owner-confirmed business details entered on 2026-11-18.
 - Verified in Edge headless: all 7 return 200 with unique metadata, unknown slug 404, no console errors, no overflow at 1440/390.
 - Not done on purpose: per-district or per-city clone pages (doorway risk).
 
+## SEO: brand assets and share images (2026-11-19)
+- Logo mark (tow truck on amber tile): `src/app/icon.svg` favicon, `src/app/apple-icon.png`, `public/logo.svg|png`, maskable `public/icon-192|512.png`, `src/app/manifest.ts`.
+- Generated Open Graph images (1200×630, built statically) for `/`, `/services`, each `/services/[slug]` and `/contacts` via `src/lib/og.tsx` (`next/og` + `@fontsource/unbounded` woff for Cyrillic, `sharp` to feed webp photos). `twitter:card` = `summary_large_image`.
+- Photos renamed to descriptive transliterated filenames (e.g. `perevozka-mini-pogruzchika.webp`); unused `tow-truck-placeholder.svg` removed.
+- JSON-LD TowingService now has `logo` and `image`; sitemap lists page images.
+- Several source photos still carry a small "2GIS" watermark; replace with the owner's originals when available.
+
 ## Next steps
 1. Confirm and replace business information as the owner sends it.
 2. Add real photos and approved reviews; set production URL.
