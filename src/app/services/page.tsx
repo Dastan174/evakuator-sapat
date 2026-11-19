@@ -14,8 +14,8 @@ export const metadata: Metadata = getPageMetadata(
 export default function ServicesPage() {
   return <div className="py-12 sm:py-16">
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <SectionHeading badge="Услуги" title="Услуги эвакуатора в Бишкеке" subtitle="Выберите тип услуги и сообщите водителю о состоянии автомобиля и маршруте. Возможность выполнения и стоимость уточняйте заранее." />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+      <SectionHeading title="Услуги эвакуатора в Бишкеке" subtitle="Выберите тип услуги и сообщите водителю о состоянии автомобиля и маршруте. Возможность выполнения и стоимость уточняйте заранее." />
+      <div className="grid grid-cols-1 gap-x-12 border-b border-zinc-800 lg:grid-cols-2">
         {SERVICES_LIST.map((service) => <ServiceCard key={service.id} service={service} />)}
       </div>
       <div className="mt-12 border border-zinc-800 bg-zinc-900/40 p-6 sm:p-8">

@@ -1,22 +1,22 @@
 import React from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { SERVICES_LIST } from "@/config/services";
 import { ServiceCard } from "@/components/ui/ServiceCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { MotionReveal } from "@/components/ui/MotionReveal";
 
 export function Services() {
-  return <section id="services" className="py-16 sm:py-24 bg-zinc-950/60 relative">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <SectionHeading badge="Услуги" title="Перевозка автомобилей в Бишкеке" subtitle="Эвакуация легковых автомобилей, перевозка после ДТП и междугородние маршруты. Состав и условия услуг уточняйте перед заказом." />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-        {SERVICES_LIST.map((service, index) => (
-          <MotionReveal key={service.id} delay={index * 0.06}>
-            <ServiceCard service={service} />
-          </MotionReveal>
-        ))}
+  return (
+    <section id="services" className="border-b border-zinc-800 bg-zinc-950 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <SectionHeading title="Что перевозим" subtitle="Легковые автомобили, внедорожники, микроавтобусы и спецтехника — в пределах нагрузки до 8 тонн. Условия уточняйте перед заказом." />
+        <div className="grid grid-cols-1 gap-x-12 border-b border-zinc-800 lg:grid-cols-2">
+          {SERVICES_LIST.map((service) => <ServiceCard key={service.id} service={service} />)}
+        </div>
+        <Link href="/services" className="group mt-8 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-amber-400 hover:text-amber-300">
+          Подробнее об услугах <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+        </Link>
       </div>
-      <div className="mt-8 text-center"><Link href="/services" className="text-sm font-semibold text-amber-400 hover:text-amber-300">Подробнее об услугах →</Link></div>
-    </div>
-  </section>;
+    </section>
+  );
 }

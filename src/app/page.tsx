@@ -2,9 +2,6 @@ import React from "react";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
 import { StoryScroll } from "@/components/sections/StoryScroll";
-import { HorizontalGallery } from "@/components/sections/HorizontalGallery";
-import { HowItWorks } from "@/components/sections/HowItWorks";
-import { Benefits } from "@/components/sections/Benefits";
 import { Pricing } from "@/components/sections/Pricing";
 import { ServiceAreas } from "@/components/sections/ServiceAreas";
 import { Gallery } from "@/components/sections/Gallery";
@@ -16,14 +13,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <StoryScroll />
       <Services />
-      <HowItWorks />
-      <Benefits />
+      <StoryScroll />
       <Pricing />
-      <ServiceAreas />
-      <HorizontalGallery />
       <Gallery />
+      <ServiceAreas />
       <Reviews />
       <FAQ />
       <FinalCTA />

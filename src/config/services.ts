@@ -15,7 +15,7 @@ export const SERVICES_LIST: ServiceItem[] = [
     id: "accident-recovery", slug: "posle-dtp", title: "Эвакуация после ДТП",
     shortDesc: "Погрузка и перевозка автомобиля после ДТП с учётом его состояния.",
     fullDesc: "Для заказа перевозки после ДТП сообщите о повреждениях, состоянии колёс и точном местоположении автомобиля.",
-    iconName: "AlertTriangle", startingPrice: STARTING_PRICE, priceNote: "начальная стоимость",
+    iconName: "TriangleAlert", startingPrice: STARTING_PRICE, priceNote: "начальная стоимость",
     features: ["Оценка состояния перед погрузкой", "Стоимость от 2 000 сомов"], isPopular: false, isConfirmed: true,
   },
   {
@@ -29,28 +29,28 @@ export const SERVICES_LIST: ServiceItem[] = [
     id: "suv-crossovers", slug: "vnedorozhniki", title: "Эвакуация внедорожников",
     shortDesc: "Перевозка кроссоверов и внедорожников в пределах допустимой нагрузки.",
     fullDesc: "Позвоните и сообщите марку, модель и примерную массу автомобиля, чтобы подтвердить детали заказа.",
-    iconName: "Truck", startingPrice: STARTING_PRICE, priceNote: "начальная стоимость",
+    iconName: "CarFront", startingPrice: STARTING_PRICE, priceNote: "начальная стоимость",
     features: ["Грузоподъёмность до 8 тонн", "Параметры согласуются при заказе"], isPopular: false, isConfirmed: true,
   },
   {
     id: "minibuses", slug: "mikroavtobusy", title: "Перевозка микроавтобусов",
     shortDesc: "Перевозка микроавтобусов и более крупных автомобилей при допустимой нагрузке.",
     fullDesc: "Сообщите габариты и примерную массу автомобиля, чтобы подтвердить возможность погрузки и маршрут.",
-    iconName: "Truck", startingPrice: STARTING_PRICE, priceNote: "начальная стоимость",
+    iconName: "BusFront", startingPrice: STARTING_PRICE, priceNote: "начальная стоимость",
     features: ["Нагрузка до 8 тонн", "Возможность уточняется по параметрам"], isPopular: false, isConfirmed: true,
   },
   {
     id: "special-equipment", slug: "spetstehnika", title: "Перевозка спецтехники",
     shortDesc: "Перевозка спецтехники при соответствии габаритов и нагрузки возможностям эвакуатора.",
     fullDesc: "Перед заказом сообщите тип, массу, габариты техники и маршрут для согласования возможности перевозки.",
-    iconName: "Truck", startingPrice: STARTING_PRICE, priceNote: "начальная стоимость",
+    iconName: "Forklift", startingPrice: STARTING_PRICE, priceNote: "начальная стоимость",
     features: ["Нагрузка до 8 тонн", "Габариты и маршрут согласуются заранее"], isPopular: false, isConfirmed: true,
   },
   {
     id: "intercity-towing", slug: "mezhgorod", title: "Междугородняя перевозка",
     shortDesc: "Межгород по Кыргызстану, в Алматы и южные города Казахстана.",
     fullDesc: "Заявлены междугородние перевозки по Кыргызстану, в Алматы и южные города Казахстана. Перед заказом подтвердите маршрут и стоимость.",
-    iconName: "Compass", startingPrice: STARTING_PRICE, priceNote: "от 2 000 сомов · по маршруту",
+    iconName: "Route", startingPrice: STARTING_PRICE, priceNote: "от 2 000 сомов · по маршруту",
     features: ["Кыргызстан", "Алматы и южные города Казахстана"], isPopular: false, isConfirmed: true,
   },
 ];
@@ -76,14 +76,3 @@ export const FAQ_LIST: FAQItem[] = [
   { id: "intercity-service", question: "Куда выполняются междугородние перевозки?", answer: "По Кыргызстану, в Алматы и южные города Казахстана. Конкретный маршрут и стоимость согласуем при заказе." },
 ];
 
-export const HOW_IT_WORKS_STEPS = [
-  { step: "01", title: "Позвоните нам", desc: "Позвоните или напишите в WhatsApp и расскажите, что случилось." },
-  { step: "02", title: "Сообщите детали", desc: "Укажите местоположение, тип и состояние автомобиля, а также адрес доставки." },
-  { step: "03", title: "Согласуйте заказ", desc: "Уточните возможность перевозки, стоимость и время подачи до начала работ." },
-];
-
-export const ADVANTAGES_LIST = [
-  { id: "transparent-price", title: "Стоимость от 2 000 сомов", desc: "Ориентир по стоимости — от 2 000 сомов. Итог согласуем до начала работ." },
-  { id: "capacity", title: "Нагрузка до 8 тонн", desc: "Перевозим автомобили и спецтехнику в пределах заявленной нагрузки и допустимых габаритов." },
-  { id: "availability", title: "Заказы 24/7", desc: "Принимаем заказы круглосуточно в Бишкеке и по согласованным междугородним маршрутам." },
-];

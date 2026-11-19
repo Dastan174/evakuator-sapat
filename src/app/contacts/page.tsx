@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
-import { Phone, MessageSquare, MapPin, Clock, ShieldAlert, CheckCircle2 } from "lucide-react";
+import { Phone, MapPin, Clock, Route, CheckCircle2 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/icons";
 import { BUSINESS_CONFIG } from "@/config/business";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getPageMetadata } from "@/config/seo";
@@ -23,14 +24,13 @@ export default function ContactsPage() {
     <div className="py-12 sm:py-16">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          badge="Контакты"
           title="Контакты для заказа эвакуатора"
           subtitle="Звоните или пишите в WhatsApp круглосуточно. В Бишкеке работаем по городу; междугородний маршрут согласуйте при обращении."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           {/* Direct Dial Card */}
-          <div className="rounded-2xl border border-amber-500/30 bg-zinc-900/80 p-8 shadow-xl shadow-amber-500/5">
+          <div className="border border-amber-500/30 bg-zinc-900/80 p-8 ">
             <div className="flex items-center gap-3 text-amber-400 mb-6">
               <Phone className="w-6 h-6" />
               <span className="text-xs font-bold uppercase tracking-wider">
@@ -49,7 +49,7 @@ export default function ContactsPage() {
             <div className="mt-8 space-y-3">
               <a
                 href={telLink}
-                className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-sm shadow-md transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-4 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-sm shadow-md transition-colors"
               >
                 <Phone className="w-4 h-4 fill-zinc-950" />
                 <span>Позвонить прямо сейчас</span>
@@ -59,16 +59,16 @@ export default function ContactsPage() {
                 href={waLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-3.5 px-4 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors"
               >
-                <MessageSquare className="w-4 h-4 fill-white" />
+                <WhatsAppIcon className="w-4 h-4" />
                 <span>Написать в WhatsApp</span>
               </a>
             </div>
           </div>
 
           {/* Location & Details Card */}
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-950 p-8 space-y-6">
+          <div className="border border-zinc-800 bg-zinc-950 p-8 space-y-6">
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <Clock className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
@@ -93,7 +93,7 @@ export default function ContactsPage() {
               </div>
 
               <div className="flex items-start gap-3">
-                <ShieldAlert className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
+                <Route className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
                 <div>
                   <div className="text-sm font-bold text-zinc-100">
                     Район обслуживания
@@ -112,7 +112,7 @@ export default function ContactsPage() {
         </div>
 
         {/* Dispatch speed advice */}
-        <div className="mt-12 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 flex items-start gap-4">
+        <div className="mt-12 border border-zinc-800 bg-zinc-900/40 p-6 flex items-start gap-4">
           <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
           <div className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
             <strong className="text-zinc-200">Совет при вызове:</strong> Для

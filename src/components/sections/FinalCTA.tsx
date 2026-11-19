@@ -1,20 +1,28 @@
 import React from "react";
-import { Phone, MessageSquare } from "lucide-react";
+import { Phone } from "lucide-react";
 import { BUSINESS_CONFIG } from "@/config/business";
+import { WhatsAppIcon } from "@/components/ui/icons";
 import { formatTelUri, formatWhatsAppUri } from "@/lib/utils";
 
 export function FinalCTA() {
   const telLink = formatTelUri(BUSINESS_CONFIG.contacts.primaryPhone);
   const waLink = formatWhatsAppUri(BUSINESS_CONFIG.contacts.whatsappPhone, BUSINESS_CONFIG.contacts.defaultWhatsAppMessage);
-  return <section className="py-20 sm:py-28 bg-zinc-900/50 border-y border-zinc-800 relative overflow-hidden">
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p className="text-xs uppercase tracking-[0.24em] text-amber-400 mb-5">{BUSINESS_CONFIG.brandName} · Бишкек · 24/7</p>
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-zinc-100 tracking-tight leading-tight">Нужен эвакуатор?</h2>
-      <p className="mt-5 text-base sm:text-lg text-zinc-300 max-w-2xl mx-auto leading-relaxed">Свяжитесь с нами, чтобы уточнить возможность подачи, стоимость и условия перевозки вашего автомобиля.</p>
-      <div className="mt-9 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 max-w-lg mx-auto">
-        <a href={telLink} className="flex items-center justify-center gap-3 px-7 py-4 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-base transition-colors"><Phone className="w-5 h-5" /><span>{BUSINESS_CONFIG.contacts.primaryPhoneFormatted}</span></a>
-        <a href={waLink} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 px-7 py-4 border border-zinc-700 hover:border-emerald-500 text-zinc-100 font-semibold text-base transition-colors"><MessageSquare className="w-5 h-5 text-emerald-400" /><span>Написать в WhatsApp</span></a>
+  return (
+    <section className="bg-amber-500 py-16 text-zinc-950 sm:py-24">
+      <div className="mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:flex-row lg:items-end lg:justify-between lg:px-8">
+        <div>
+          <h2 className="font-display text-4xl font-bold leading-[1] tracking-[-0.035em] sm:text-5xl lg:text-6xl">Нужен эвакуатор?</h2>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-zinc-900 sm:text-lg">Звоните или пишите круглосуточно — согласуем подачу, стоимость и маршрут.</p>
+        </div>
+        <div className="flex flex-col gap-3 sm:flex-row">
+          <a href={telLink} className="press inline-flex min-h-14 items-center justify-center gap-3 bg-zinc-950 px-7 text-base font-bold text-white hover:bg-zinc-800">
+            <Phone className="h-5 w-5" aria-hidden="true" /><span className="tabular-nums">{BUSINESS_CONFIG.contacts.primaryPhoneFormatted}</span>
+          </a>
+          <a href={waLink} target="_blank" rel="noopener noreferrer" className="press inline-flex min-h-14 items-center justify-center gap-3 border-2 border-zinc-950 px-7 text-base font-bold hover:bg-zinc-950 hover:text-white">
+            <WhatsAppIcon className="h-5 w-5" />WhatsApp
+          </a>
+        </div>
       </div>
-    </div>
-  </section>;
+    </section>
+  );
 }

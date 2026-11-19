@@ -6,72 +6,82 @@
   --background: #09090b;
   --foreground: #f4f4f5;
   --color-brand-amber: #f59e0b;
-  --color-brand-orange: #ff6b00;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
   background-color: #09090b;
   color: #f4f4f5;
   color-scheme: dark;
 }
 
-.hero-grid {
-  background-image: linear-gradient(rgba(161, 161, 170, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(161, 161, 170, 0.05) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: linear-gradient(to bottom, black, transparent 85%);
+body {
+  background-color: #09090b;
+  color: #f4f4f5;
+  font-feature-settings: "rlig" 1, "calt" 1;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  caret-color: var(--color-brand-amber);
 }
 
-.cinematic-hero-ready .cinematic-hero-image {
-  will-change: transform;
+/* Lenis drives smooth scrolling on desktop; native smooth behaviour would fight it. */
+html.lenis {
+  scroll-behavior: auto;
 }
 
-
-/* Editorial utility details used across the industrial visual system. */
-.eyebrow-line {
-  position: relative;
-  padding-left: 2.75rem;
+:focus-visible {
+  outline: 2px solid var(--color-brand-amber);
+  outline-offset: 3px;
 }
 
-.eyebrow-line::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 2rem;
-  height: 1px;
-  background: var(--color-brand-amber);
+::selection {
+  background-color: rgba(245, 158, 11, 0.35);
+  color: #ffffff;
 }
 
-@media (max-width: 767px) {
-  .hero-grid {
-    background-size: 40px 40px;
-  }
+/* Hero entrance: plays once on load in pure CSS, so content never waits for hydration. */
+@keyframes hero-reveal {
+  from { clip-path: inset(100% 0 0 0); }
+  to { clip-path: inset(0 0 0 0); }
 }
 
-/* The storytelling stack remains fully visible until ScrollTrigger is ready. */
-.story-stage-image {
-  position: relative;
-  margin-top: 0.75rem;
-  min-height: 12rem;
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(14px); filter: blur(6px); }
+  to { opacity: 1; transform: none; filter: none; }
 }
 
-@media (min-width: 768px) {
-  .story-scroll-ready .story-stage-image {
-    position: absolute;
-    margin-top: 0;
-    min-height: 0;
-  }
+.hero-reveal {
+  animation: hero-reveal 1.1s var(--ease-out-expo) both;
+  animation-delay: var(--delay, 0ms);
 }
 
+.hero-rise {
+  animation: hero-rise 0.7s var(--ease-out-expo) both;
+  animation-delay: var(--delay, 0ms);
+}
 
+/* Press feedback shared by every solid action. */
+.press {
+  transition: background-color 150ms, border-color 150ms, color 150ms, transform 120ms var(--ease-out-expo);
+}
 
-/* Accessibility: respect user choice for reduced motion */
+.press:active {
+  transform: scale(0.97);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
-  
+
+  .hero-reveal,
+  .hero-rise {
+    animation: none;
+  }
+
   *,
   *::before,
   *::after {
@@ -82,21 +92,6 @@ html {
   }
 }
 
-body {
-  background-color: #09090b;
-  color: #f4f4f5;
-  font-feature-settings: "rlig" 1, "calt" 1;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-::selection {
-  background-color: rgba(245, 158, 11, 0.35);
-  color: #ffffff;
-}
-
-/* Custom subtle scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }

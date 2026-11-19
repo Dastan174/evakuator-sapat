@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
-import { X, Phone, MessageSquare, MapPin, Clock } from "lucide-react";
+import { X, Phone, MapPin, Clock } from "lucide-react";
+import { WhatsAppIcon } from "@/components/ui/icons";
 import { MAIN_NAV_ITEMS } from "@/config/navigation";
 import { BUSINESS_CONFIG } from "@/config/business";
 import { formatTelUri, formatWhatsAppUri } from "@/lib/utils";
@@ -67,7 +68,7 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
             <button
               ref={closeButtonRef}
               onClick={onClose}
-              className="p-2 rounded-lg text-zinc-400 hover:text-white bg-zinc-900 border border-zinc-800"
+              className="p-2 text-zinc-400 hover:text-white bg-zinc-900 border border-zinc-800"
               aria-label="Закрыть меню"
             >
               <X className="w-5 h-5" />
@@ -81,7 +82,7 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
-                className="px-3 py-2.5 rounded-lg text-sm font-medium text-zinc-300 hover:text-amber-400 hover:bg-zinc-900/80 transition-colors"
+                className="px-3 py-2.5 text-sm font-medium text-zinc-300 hover:text-amber-400 hover:bg-zinc-900/80 transition-colors"
               >
                 {item.title}
               </Link>
@@ -102,7 +103,7 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
 
           <a
             href={telLink}
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-sm shadow-md"
+            className="w-full flex items-center justify-center gap-2 py-3 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold text-sm shadow-md"
           >
             <Phone className="w-4 h-4 fill-zinc-950" />
             <span>{BUSINESS_CONFIG.contacts.primaryPhoneFormatted}</span>
@@ -112,9 +113,9 @@ export function MobileNavigation({ isOpen, onClose }: MobileNavigationProps) {
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm"
+            className="w-full flex items-center justify-center gap-2 py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm"
           >
-            <MessageSquare className="w-4 h-4 fill-white" />
+            <WhatsAppIcon className="w-4 h-4" />
             <span>Написать в WhatsApp</span>
           </a>
         </div>
