@@ -48,6 +48,13 @@ MVP implementation and owner-confirmed business details entered on 2026-11-18.
 - Smooth parallax layer: Lenis inertial scroll on ≥1280px (`SmoothScroll`), and `ParallaxImage` — photo drifts inside its clipped frame — on gallery tiles and the hero back/front frames. Both gated by `useDesktopMotion` (≥1024px, no reduced motion). Scroll transforms use function-form `useTransform` because range form is frozen into a native ScrollTimeline at first render. Verified in Edge headless: moves on desktop, static on 390 and reduced motion, no errors.
 - Full-screen "card grows to full width" scene deferred until the owner supplies original photos ≥2000px wide (current files are 542–960px).
 
+## SEO: service pages (2026-11-19)
+- `SITE_URL` falls back to Vercel's `VERCEL_PROJECT_PRODUCTION_URL` (switches to the custom domain once attached); `example.com` fallback removed. Homepage got a canonical.
+- Seven static service pages at `/services/[slug]` (`generateStaticParams`, `dynamicParams = false`). Copy lives in `src/config/service-pages.ts`, written only from confirmed facts. Each page: unique title/description/H1, intro, order checklist, steps, price, 3 photos, FAQ, related services; JSON-LD Service + BreadcrumbList + FAQPage.
+- Service rows on `/` and `/services`, footer links and sitemap point to the pages. Fixed duplicated brand in page titles from `getPageMetadata`.
+- Verified in Edge headless: all 7 return 200 with unique metadata, unknown slug 404, no console errors, no overflow at 1440/390.
+- Not done on purpose: per-district or per-city clone pages (doorway risk).
+
 ## Next steps
 1. Confirm and replace business information as the owner sends it.
 2. Add real photos and approved reviews; set production URL.

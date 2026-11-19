@@ -13,7 +13,7 @@ const photo = (name: string, alt: string, width: number, height: number): Galler
 });
 
 /** Owner-provided photos from the company's 2GIS gallery. Alt text describes what is actually in frame. */
-const PHOTOS = {
+export const PHOTOS = {
   night: photo("23.28.03 (4)", "Красный эвакуатор с белым внедорожником ночью у жилого комплекса", 722, 955),
   sunset: photo("23.28.04", "Белый эвакуатор с седаном на платформе на фоне заката", 722, 950),
   mountainSedan: photo("23.28.03 (3)", "Седан на платформе эвакуатора на горной трассе", 542, 955),
@@ -31,6 +31,8 @@ const PHOTOS = {
   forklift: photo("23.28.04 (2)", "Синий грузовой эвакуатор перевозит вилочный погрузчик", 960, 1280),
   forkliftSide: photo("23.28.04 (3)", "Вилочный погрузчик на платформе синего эвакуатора", 960, 1280),
 };
+
+export type PhotoKey = keyof typeof PHOTOS;
 
 /** Hero composition: main frame, back frame, front frame. */
 export const HERO_IMAGES = { main: PHOTOS.night, back: PHOTOS.mountainSedan, front: PHOTOS.redSuv };

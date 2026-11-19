@@ -10,10 +10,10 @@ export const MAIN_NAV_ITEMS: NavItem[] = [
 ];
 
 export const FOOTER_QUICK_LINKS: NavItem[] = [
-  { title: "Эвакуация легковых автомобилей", href: "/#services" },
-  { title: "Эвакуация после ДТП", href: "/#services" },
-  { title: "Перевозка внедорожников", href: "/#services" },
-  { title: "Междугородняя перевозка", href: "/#services" },
+  { title: "Эвакуация легковых автомобилей", href: "/services/legkovye-avto" },
+  { title: "Эвакуация после ДТП", href: "/services/posle-dtp" },
+  { title: "Перевозка спецтехники", href: "/services/spetstehnika" },
+  { title: "Междугородняя перевозка", href: "/services/mezhgorod" },
   { title: "Все услуги", href: "/services" },
   { title: "Контакты", href: "/contacts" },
 ];

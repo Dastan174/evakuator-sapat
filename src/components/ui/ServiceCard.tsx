@@ -1,5 +1,6 @@
 import React from "react";
-import { Car, CarFront, BusFront, Forklift, Route, TriangleAlert, Wrench, Phone, type LucideIcon } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Car, CarFront, BusFront, Forklift, Route, TriangleAlert, Wrench, Phone, type LucideIcon } from "lucide-react";
 import { ServiceItem } from "@/types";
 import { BUSINESS_CONFIG } from "@/config/business";
 import { WhatsAppIcon } from "@/components/ui/icons";
@@ -21,7 +22,12 @@ export function ServiceCard({ service }: { service: ServiceItem }) {
         <Icon className="h-6 w-6" strokeWidth={1.75} aria-hidden="true" />
       </span>
       <div className="min-w-0 flex-1">
-        <h3 className="text-lg font-bold text-zinc-100">{service.title}</h3>
+        <h3 className="text-lg font-bold text-zinc-100">
+          <Link href={`/services/${service.slug}`} className="inline-flex items-center gap-2 underline-offset-4 hover:text-amber-400 hover:underline">
+            {service.title}
+            <ArrowRight className="h-4 w-4 shrink-0 text-zinc-500 transition-transform group-hover:translate-x-0.5 group-hover:text-amber-400" aria-hidden="true" />
+          </Link>
+        </h3>
         <p className="mt-1.5 text-sm leading-relaxed text-zinc-400 sm:text-base">{service.shortDesc}</p>
         <p className="mt-2 text-sm text-zinc-500">{service.features.join(" · ")}</p>
       </div>

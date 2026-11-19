@@ -1,8 +1,14 @@
 import type { Metadata } from "next";
 import { BUSINESS_CONFIG } from "./business";
 
-/** Set NEXT_PUBLIC_SITE_URL to the verified production domain before deployment. */
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+/**
+ * Canonical origin. Explicit NEXT_PUBLIC_SITE_URL wins; otherwise Vercel's production domain is used
+ * (VERCEL_PROJECT_PRODUCTION_URL switches to the custom domain automatically once one is attached).
+ * localhost only applies to local builds, never to a deployment.
+ */
+export const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : "http://localhost:3000");
 
 export const DEFAULT_SEO_CONFIG = {
   title: "Эвакуатор «Сапат» в Бишкеке 24/7 — вызов и межгород",
@@ -12,14 +18,16 @@ export const DEFAULT_SEO_CONFIG = {
 };
 
 export function getPageMetadata(pageTitle?: string, pageDescription?: string, canonicalPath = ""): Metadata {
-  const title = pageTitle ? `${pageTitle} | ${BUSINESS_CONFIG.brandName}` : DEFAULT_SEO_CONFIG.title;
+  // The root layout's title template appends the brand, so <title> gets the bare page title.
+  const title = pageTitle || DEFAULT_SEO_CONFIG.title;
+  const fullTitle = pageTitle ? `${pageTitle} | ${BUSINESS_CONFIG.brandName}` : DEFAULT_SEO_CONFIG.title;
   const description = pageDescription || DEFAULT_SEO_CONFIG.description;
   const canonicalUrl = `${SITE_URL}${canonicalPath}`;
   return {
     title, description, keywords: DEFAULT_SEO_CONFIG.keywords,
     alternates: { canonical: canonicalUrl },
     openGraph: {
-      title, description, url: canonicalUrl, siteName: BUSINESS_CONFIG.brandName,
+      title: fullTitle, description, url: canonicalUrl, siteName: BUSINESS_CONFIG.brandName,
       locale: "ru_KG", type: "website",
     },
     robots: { index: true, follow: true },
